@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="https://i.postimg.cc/htjxgCbx/Be-Funky-collage.jpg"
           alt="Rose and Kim Young Wookk"
           fill
           sizes="100vw"
