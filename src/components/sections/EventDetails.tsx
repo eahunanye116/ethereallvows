@@ -15,7 +15,6 @@ const events = [
     date: "Wednesday, December 24, 2025",
     time: "2:00 PM",
     location: "Vellano Estate by Wedgewood Weddings",
-    address: "2441 Vellano Club Dr, Chino Hills, CA 91709",
     dressCode: "Black Tie Optional",
   },
   {
@@ -23,7 +22,6 @@ const events = [
     date: "Wednesday, December 24, 2025",
     time: "5:00 PM",
     location: "Los Serranos Country Club Banquet Hall",
-    address: "15656 Yorba Ave, Chino Hills, CA 91709",
     dressCode: "Black Tie Optional",
   },
 ];
@@ -57,7 +55,6 @@ const EventCard = ({ event, delay }: { event: typeof events[0], delay: number })
               <p className="font-semibold text-card-foreground">
                 {event.location}
               </p>
-              <p>{event.address}</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
