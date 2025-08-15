@@ -68,8 +68,7 @@ export default function RsvpFormSection() {
           <CardHeader>
             <CardTitle className="text-center">
               <h2
-                className="text-4xl md:text-5xl font-headline font-bold text-center"
-                style={{ color: "hsl(var(--secondary))" }}
+                className="text-4xl md:text-5xl font-headline font-bold text-center text-secondary-foreground"
               >
                 RSVP
               </h2>

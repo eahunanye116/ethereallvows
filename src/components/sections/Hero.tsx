@@ -18,8 +18,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center p-4">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-extrabold tracking-tight">
           <span
-            className="block"
-            style={{ color: "hsl(var(--secondary))" }}
+            className="block text-secondary-foreground"
           >
             Rose
           </span>
@@ -27,8 +26,7 @@ export default function Hero() {
             &
           </span>
           <span
-            className="block"
-            style={{ color: "hsl(var(--secondary))" }}
+            className="block text-secondary-foreground"
           >
             Kim Young Wookk
           </span>

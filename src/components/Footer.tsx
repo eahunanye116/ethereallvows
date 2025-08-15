@@ -3,8 +3,7 @@ export default function Footer() {
     <footer className="bg-background border-t border-border/20 py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-primary-foreground/60">
         <p
-          className="text-2xl font-headline mb-2"
-          style={{ color: "hsl(var(--secondary))" }}
+          className="text-2xl font-headline mb-2 text-secondary-foreground"
         >
           Rose & Kim Young Wookk
         </p>

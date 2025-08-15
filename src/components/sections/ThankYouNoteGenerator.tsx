@@ -80,8 +80,7 @@ export default function ThankYouNoteGenerator() {
           <CardHeader>
             <CardTitle className="text-center">
               <h2
-                className="text-4xl md:text-5xl font-headline font-bold text-center mb-2"
-                style={{ color: "hsl(var(--secondary))" }}
+                className="text-4xl md:text-5xl font-headline font-bold text-center mb-2 text-secondary-foreground"
               >
                 Thank You Note Helper
               </h2>

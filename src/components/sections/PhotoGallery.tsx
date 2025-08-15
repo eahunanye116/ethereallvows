@@ -47,8 +47,7 @@ export default function PhotoGallery() {
     <section id="gallery" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className="text-4xl md:text-5xl font-headline font-bold text-center mb-12"
-          style={{ color: "hsl(var(--secondary))" }}
+          className="text-4xl md:text-5xl font-headline font-bold text-center mb-12 text-secondary-foreground"
         >
           Our Moments
         </h2>
