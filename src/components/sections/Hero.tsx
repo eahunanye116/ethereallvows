@@ -37,7 +37,7 @@ export default function Hero() {
           ARE GETTING MARRIED
         </p>
         <p className="mt-4 text-2xl md:text-3xl font-headline font-semibold text-primary">
-          OCTOBER 26, 2024
+          DECEMBER 24, 2025
         </p>
       </div>
     </section>

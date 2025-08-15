@@ -9,7 +9,7 @@ import { MapPin, Calendar, Clock, Shirt } from "lucide-react";
 const events = [
   {
     title: "Wedding Ceremony",
-    date: "Saturday, October 26, 2024",
+    date: "Wednesday, December 24, 2025",
     time: "2:00 PM",
     location: "St. Regis Hotel, San Francisco",
     address: "125 3rd St, San Francisco, CA 94103",
@@ -17,7 +17,7 @@ const events = [
   },
   {
     title: "Reception Dinner",
-    date: "Saturday, October 26, 2024",
+    date: "Wednesday, December 24, 2025",
     time: "5:00 PM",
     location: "The Garden Court, Palace Hotel",
     address: "2 New Montgomery St, San Francisco, CA 94105",

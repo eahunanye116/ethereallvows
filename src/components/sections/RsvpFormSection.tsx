@@ -77,7 +77,7 @@ export default function RsvpFormSection() {
           </CardHeader>
           <CardContent>
             <p className="text-center text-card-foreground/80 mb-8">
-              Please respond by September 15, 2024
+              Please respond by November 30, 2025
             </p>
             <Form {...form}>
               <form
