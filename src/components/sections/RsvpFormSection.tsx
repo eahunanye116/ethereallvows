@@ -24,6 +24,8 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { db } from "@/lib/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const rsvpFormSchema = z.object({
   fullName: z
@@ -51,14 +53,23 @@ export default function RsvpFormSection() {
 
   const isAttending = form.watch("attending") === "yes";
 
-  function onSubmit(values: z.infer<typeof rsvpFormSchema>) {
-    console.log(values);
-    toast({
-      title: "RSVP Submitted!",
-      description:
-        "Thank you for your response. We can't wait to celebrate with you!",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof rsvpFormSchema>) {
+    try {
+      await addDoc(collection(db, "rsvps"), values);
+      toast({
+        title: "RSVP Submitted!",
+        description:
+          "Thank you for your response. We can't wait to celebrate with you!",
+      });
+      form.reset();
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      toast({
+        title: "Error",
+        description: "There was an error submitting your RSVP. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -68,7 +79,7 @@ export default function RsvpFormSection() {
           <CardHeader>
             <CardTitle className="text-center">
               <h2
-                className="text-4xl md:text-5xl font-headline font-bold text-center text-secondary-foreground"
+                className="text-4xl md:text-5xl font-headline font-bold text-center text-foreground"
               >
                 RSVP
               </h2>

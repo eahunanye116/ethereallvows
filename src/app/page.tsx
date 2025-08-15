@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import EventDetails from "@/components/sections/EventDetails";
+import ExcitementCounter from "@/components/sections/ExcitementCounter";
 import RsvpFormSection from "@/components/sections/RsvpFormSection";
 import PhotoGallery from "@/components/sections/PhotoGallery";
 import Footer from "@/components/Footer";
@@ -10,6 +11,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <EventDetails />
+        <ExcitementCounter />
         <RsvpFormSection />
         <PhotoGallery />
       </main>
