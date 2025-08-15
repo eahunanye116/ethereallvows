@@ -14,8 +14,8 @@ const events = [
     title: "Wedding Ceremony",
     date: "Wednesday, December 24, 2025",
     time: "2:00 PM",
-    location: "St. Regis Hotel, San Francisco",
-    address: "125 3rd St, San Francisco, CA 94103",
+    location: "Vellano Estate by Wedgewood Weddings",
+    address: "2441 Vellano Club Dr, Chino Hills, CA 91709",
     dressCode: "Black Tie Optional",
   },
   {
