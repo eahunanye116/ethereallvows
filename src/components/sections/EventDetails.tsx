@@ -22,8 +22,8 @@ const events = [
     title: "Reception Dinner",
     date: "Wednesday, December 24, 2025",
     time: "5:00 PM",
-    location: "The Garden Court, Palace Hotel",
-    address: "2 New Montgomery St, San Francisco, CA 94105",
+    location: "Los Serranos Country Club Banquet Hall",
+    address: "15656 Yorba Ave, Chino Hills, CA 91709",
     dressCode: "Black Tie Optional",
   },
 ];
