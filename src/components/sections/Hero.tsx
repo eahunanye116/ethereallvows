@@ -18,20 +18,20 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center p-4">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-extrabold tracking-tight">
           <span
-            className="block text-secondary-foreground"
+            className="block text-foreground"
           >
             Rose
           </span>
-          <span className="block text-4xl md:text-6xl text-primary-foreground my-4">
+          <span className="block text-4xl md:text-6xl text-foreground my-4">
             &
           </span>
           <span
-            className="block text-secondary-foreground"
+            className="block text-foreground"
           >
             Kim Young Wookk
           </span>
         </h1>
-        <p className="mt-8 text-xl md:text-2xl font-light text-primary-foreground/80">
+        <p className="mt-8 text-xl md:text-2xl font-light text-foreground/80">
           ARE GETTING MARRIED
         </p>
         <p className="mt-4 text-2xl md:text-3xl font-headline font-semibold text-primary">

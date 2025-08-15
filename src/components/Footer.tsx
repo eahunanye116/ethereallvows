@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-border/20 py-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-primary-foreground/60">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-foreground/60">
         <p
-          className="text-2xl font-headline mb-2 text-secondary-foreground"
+          className="text-2xl font-headline mb-2 text-foreground"
         >
           Rose & Kim Young Wookk
         </p>

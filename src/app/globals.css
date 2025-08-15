@@ -14,7 +14,7 @@
     --popover-foreground: 0 0% 98%;
 
     --primary: 43 91% 36%; /* Gold #B8860B */
-    --primary-foreground: 232 18% 10%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 300 40% 30%; /* Plum, lighter version of #4A044A */
     --secondary-foreground: 0 0% 98%;
@@ -42,7 +42,7 @@
     --popover: 232 18% 22%;
     --popover-foreground: 0 0% 98%;
     --primary: 43 91% 36%;
-    --primary-foreground: 232 18% 10%;
+    --primary-foreground: 0 0% 98%;
     --secondary: 300 40% 30%;
     --secondary-foreground: 0 0% 98%;
     --muted: 232 18% 25%;
