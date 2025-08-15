@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { doc, onSnapshot, runTransaction, getFirestore } from "firebase/firestore";
+import { doc, onSnapshot, runTransaction } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,18 +11,21 @@ export default function ExcitementCounter() {
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    const docRef = doc(db, "wedding", "clicks");
-    const unsubscribe = onSnapshot(docRef, (doc) => {
-      if (doc.exists()) {
-        setCount(doc.data().count);
-      }
-    });
-
     // Check local storage to see if the user has already clicked
     if (localStorage.getItem("hasClickedBell")) {
       setIsClicked(true);
     }
 
+    const docRef = doc(db, "wedding", "clicks");
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      if (doc.exists()) {
+        setCount(doc.data().count);
+      } else {
+        // If the document doesn't exist, you might want to create it.
+        // For now, we'll just log it.
+        console.log("Clicks document does not exist!");
+      }
+    });
 
     return () => unsubscribe();
   }, []);
