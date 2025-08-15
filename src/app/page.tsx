@@ -2,7 +2,6 @@ import Hero from "@/components/sections/Hero";
 import EventDetails from "@/components/sections/EventDetails";
 import RsvpFormSection from "@/components/sections/RsvpFormSection";
 import PhotoGallery from "@/components/sections/PhotoGallery";
-import ThankYouNoteGenerator from "@/components/sections/ThankYouNoteGenerator";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,7 +12,6 @@ export default function Home() {
         <EventDetails />
         <RsvpFormSection />
         <PhotoGallery />
-        <ThankYouNoteGenerator />
       </main>
       <Footer />
     </div>
