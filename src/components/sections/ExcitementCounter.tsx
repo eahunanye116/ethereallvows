@@ -8,14 +8,8 @@ import { Button } from "@/components/ui/button";
 
 export default function ExcitementCounter() {
   const [count, setCount] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    // Check local storage to see if the user has already clicked
-    if (localStorage.getItem("hasClickedBell")) {
-      setIsClicked(true);
-    }
-
     const docRef = doc(db, "wedding", "clicks");
     const unsubscribe = onSnapshot(docRef, (doc) => {
       if (doc.exists()) {
@@ -31,8 +25,6 @@ export default function ExcitementCounter() {
   }, []);
 
   const handleClick = async () => {
-    if (isClicked) return;
-
     const docRef = doc(db, "wedding", "clicks");
     try {
       await runTransaction(db, async (transaction) => {
@@ -44,8 +36,6 @@ export default function ExcitementCounter() {
           transaction.update(docRef, { count: newCount });
         }
       });
-      setIsClicked(true);
-      localStorage.setItem("hasClickedBell", "true");
     } catch (e) {
       console.error("Transaction failed: ", e);
     }
@@ -64,15 +54,10 @@ export default function ExcitementCounter() {
           <Button
             onClick={handleClick}
             size="lg"
-            className={`rounded-full transition-all duration-300 ${
-              isClicked
-                ? "bg-primary/80 cursor-not-allowed"
-                : "bg-primary hover:bg-primary/90"
-            }`}
-            disabled={isClicked}
+            className="rounded-full transition-all duration-300 bg-primary hover:bg-primary/90"
           >
             <Bell className="w-6 h-6 mr-2" />
-            {isClicked ? "Thanks!" : "I'm Excited!"}
+            I'm Excited!
           </Button>
           <div className="text-2xl font-bold text-foreground py-2 px-4 rounded-lg bg-card border-border/50">
             {count}
