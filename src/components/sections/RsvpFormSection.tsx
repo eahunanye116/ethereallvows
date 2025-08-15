@@ -26,6 +26,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const rsvpFormSchema = z.object({
   fullName: z
@@ -40,6 +41,7 @@ const rsvpFormSchema = z.object({
 });
 
 export default function RsvpFormSection() {
+  const { ref, isVisible } = useScrollAnimation();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof rsvpFormSchema>>({
     resolver: zodResolver(rsvpFormSchema),
@@ -74,8 +76,8 @@ export default function RsvpFormSection() {
 
   return (
     <section id="rsvp" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="max-w-2xl mx-auto bg-card border-border/50 shadow-lg">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Card className={`max-w-2xl mx-auto bg-card border-border/50 shadow-lg transition-all duration-300 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}>
           <CardHeader>
             <CardTitle className="text-center">
               <h2

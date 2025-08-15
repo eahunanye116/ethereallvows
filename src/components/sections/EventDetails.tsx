@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardHeader,
@@ -5,6 +7,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { MapPin, Calendar, Clock, Shirt } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const events = [
   {
@@ -25,6 +28,49 @@ const events = [
   },
 ];
 
+const EventCard = ({ event, delay }: { event: typeof events[0], delay: number }) => {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div ref={ref} className="w-full">
+      <Card
+        className={`bg-card border-border/50 shadow-lg hover:shadow-primary/20 transition-all duration-300 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}
+        style={{ animationDelay: `${delay}ms` }}
+      >
+        <CardHeader>
+          <CardTitle className="text-2xl font-headline text-primary">
+            {event.title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-card-foreground/80">
+          <div className="flex items-center gap-4">
+            <Calendar className="w-5 h-5 text-primary" />
+            <span>{event.date}</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Clock className="w-5 h-5 text-primary" />
+            <span>{event.time}</span>
+          </div>
+          <div className="flex items-start gap-4">
+            <MapPin className="w-5 h-5 text-primary mt-1" />
+            <div>
+              <p className="font-semibold text-card-foreground">
+                {event.location}
+              </p>
+              <p>{event.address}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <Shirt className="w-5 h-5 text-primary" />
+            <span>{event.dressCode}</span>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+
 export default function EventDetails() {
   return (
     <section id="events" className="py-20 md:py-28 bg-background">
@@ -35,40 +81,8 @@ export default function EventDetails() {
           Event Details
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {events.map((event) => (
-            <Card
-              key={event.title}
-              className="bg-card border-border/50 shadow-lg hover:shadow-primary/20 transition-shadow duration-300"
-            >
-              <CardHeader>
-                <CardTitle className="text-2xl font-headline text-primary">
-                  {event.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-card-foreground/80">
-                <div className="flex items-center gap-4">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <span>{event.date}</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span>{event.time}</span>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-semibold text-card-foreground">
-                      {event.location}
-                    </p>
-                    <p>{event.address}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Shirt className="w-5 h-5 text-primary" />
-                  <span>{event.dressCode}</span>
-                </div>
-              </CardContent>
-            </Card>
+          {events.map((event, index) => (
+             <EventCard key={event.title} event={event} delay={index * 200} />
           ))}
         </div>
       </div>

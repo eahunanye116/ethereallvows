@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function PhotoGallery() {
+  const { ref, isVisible } = useScrollAnimation();
   return (
     <section id="gallery" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,8 +13,8 @@ export default function PhotoGallery() {
         >
           Our Moment
         </h2>
-        <div className="max-w-2xl mx-auto">
-          <Card className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+        <div ref={ref} className="max-w-2xl mx-auto">
+          <Card className={`overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}>
             <CardContent className="p-0">
               <Image
                 src="https://placehold.co/800x600.png"
