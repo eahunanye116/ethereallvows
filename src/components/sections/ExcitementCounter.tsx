@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { doc, onSnapshot, runTransaction } from "firebase/firestore";
+import { doc, onSnapshot, runTransaction, increment, updateDoc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,9 +15,8 @@ export default function ExcitementCounter() {
       if (doc.exists()) {
         setCount(doc.data().count);
       } else {
-        // If the document doesn't exist, you might want to create it.
-        // For now, we'll just log it.
-        console.log("Clicks document does not exist!");
+        // If the document doesn't exist, create it.
+        setDoc(docRef, { count: 0 });
       }
     });
 
@@ -27,17 +26,16 @@ export default function ExcitementCounter() {
   const handleClick = async () => {
     const docRef = doc(db, "wedding", "clicks");
     try {
-      await runTransaction(db, async (transaction) => {
-        const sfDoc = await transaction.get(docRef);
-        if (!sfDoc.exists()) {
-          transaction.set(docRef, { count: 1 });
-        } else {
-          const newCount = sfDoc.data().count + 1;
-          transaction.update(docRef, { count: newCount });
-        }
+      // Use atomic increment operation
+      await updateDoc(docRef, {
+        count: increment(1),
       });
     } catch (e) {
-      console.error("Transaction failed: ", e);
+      console.error("Increment failed: ", e);
+      // Fallback for if the document doesn't exist, though the snapshot listener should handle it.
+      if ((e as any)?.code === 'not-found') {
+        await setDoc(docRef, { count: 1 });
+      }
     }
   };
 
